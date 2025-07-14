@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="{% static 'portfolioapp/style.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <nav class="sidebar">
+      <div class="logo">
+        <img src="{% static 'portfolioapp/images/CKP-logo.png' %}" alt="Chetan Logo">
+      </div>
+      <ul>
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Hi, <br>I’m <span class="blue">Chetan</span><br>Django Developer and Frontend Developer</h1>
+      <button class="contact-btn" id="contactBtn">Contact</button>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/chetan-kumar-prajapati-3b8918217" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/chetan929/ocr_handwriter.git" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="image-wrapper">
+        <div class="blob"></div>
+        <img src="{% static 'portfolioapp/images/profile (2).png' %}" alt="Chetan's Profile" class="profile-img" />
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <h1>About ME</h1>
+    <div class="about-content">
+      <div class="img1"><img src="{% static 'portfolioapp/images/me.png' %}" alt="About"></div>
+      <div class="about-text">
+        <p>I'm <strong>Chetan</strong>, a passionate <strong>Django Developer</strong> and <strong>Frontend Developer</strong> with a strong eye for clean, user-friendly interfaces and efficient backend solutions. I enjoy turning complex problems into elegant, scalable web applications.</p>
+        <p>When I'm not coding, I explore new tech and design trends.</p>
+        <p>I'm always excited to learn and grow as a developer.</p>
+
+        <div class="li-content">
+          <div class="left-li">
+            <ul>
+              <li>📍 Location: India (Remote-friendly)</li>
+              <li>🎓 Education: BCA</li>
+              <li>💻 3 Projects Completed</li>
+            </ul>
+          </div>
+          <div class="right-li">
+            <ul>
+              <li>🛠️ Tech Stack: Django, HTML, CSS, JS</li>
+              <li>💼 Freelance: Available</li>
+              <li>🤝 100% Client Satisfaction</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="about-flex-row">
+          <div class="cert-box">
+            <h4 class="cert-heading">📜 Certifications</h4>
+            <ul class="cert-list">
+              <li>✔️ Python (HackerRank)</li>
+              <li>✔️ SQL (HackerRank)</li>
+              <li>✔️ Problem Solving (HackerRank)</li>
+              <li>✔️ JavaScript (HackerRank)</li>
+            </ul>
+            <div class="cta-buttons">
+              <a href="https://drive.google.com/uc?export=download&id=1O9PoAueBoft3Iecz63k2ToknMKt7lKxy" target="_blank" class="resume-btn">📄 Download Resume</a>
+              <a href="#contact" class="contact-cta">Let’s work together!</a>
+            </div>
+
+            <div class="quote-wrapper">
+              <p class="quote">“Code is purpose made visible.”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills-section">
+    <div class="skills-wrapper">
+      <div class="skills-image">
+        <img src="{% static 'portfolioapp/images/skills.png' %}" alt="Multitasking Developer">
+      </div>
+      <div class="skills-list">
+        <h2>💼 My Skills</h2>
+        <ul class="skills-tags">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Django</li>
+          <li>SQL</li>
+          <li>Responsive Design</li>
+          <li>Git & GitHub</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2 class="section-title">🛠️ Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>🔗 LinkyDrop</h3>
+          <p>A video downloader for Instagram, YouTube & Facebook built with Django.</p>
+          <a href="https://linkydrop.onrender.com/" target="_blank">Live Demo</a>
+        </div>
+        <div class="project-card">
+          <h3>🔍📝 OCR & Handwritten Text Converter</h3>
+          <p>Convert images into editable text and bring your typed words to life in handwritten style.</p>
+          <a href="#">View Project</a>
+        </div>
+        <div class="project-card">
+          <h3>soon..</h3>
+          <p>sooon...........</p>
+          <a href="#">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">📬 Contact Me</h2>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <p><i class="fas fa-envelope"></i> Email: kumarchetan8566@gmail.com</p>
+          <p><i class="fas fa-phone"></i> Phone: +91-7982024219</p>
+          <p><i class="fas fa-map-marker-alt"></i> Location: India (Remote)</p>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/chetan-kumar-prajapati-3b8918217" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/chetan929" target="_blank"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+
+        <form class="contact-form" action="#" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+             {% csrf_token %}
+  {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src="{% static 'portfolioapp/script.js' %}"></script>
+</body>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <p>&copy; 2025 Chetan Kumar. All rights reserved.</p>
+    <div class="footer-social-icons">
+      <a href="https://www.linkedin.com/in/chetan-kumar-prajapati-3b8918217" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://github.com/chetan929" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="mailto:kumarchetan8566@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+</footer>
+
+</html>
