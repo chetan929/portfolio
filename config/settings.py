@@ -57,6 +57,7 @@ MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 
@@ -93,7 +94,6 @@ TEMPLATES = [
 # =========================================================
 
 if os.environ.get("DATABASE_URL"):
-    # PostgreSQL database on Render
     DATABASES = {
         "default": dj_database_url.config(
             default=os.environ.get("DATABASE_URL"),
@@ -102,7 +102,6 @@ if os.environ.get("DATABASE_URL"):
         )
     }
 else:
-    # SQLite database for local development
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -123,25 +122,13 @@ EMAIL_PORT = 587
 
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = os.environ.get(
-    "EMAIL_HOST_USER",
-    "kumarchetan8566@gmail.com"
-)
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 
-EMAIL_HOST_PASSWORD = os.environ.get(
-    "EMAIL_HOST_PASSWORD",
-    "sljd rmsw rayk scyp"
-)
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
-DEFAULT_FROM_EMAIL = os.environ.get(
-    "DEFAULT_FROM_EMAIL",
-    "kumarchetan8566@gmail.com"
-)
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL")
 
-RECIPIENT_EMAIL = os.environ.get(
-    "RECIPIENT_EMAIL",
-    "kumarchetan8566@gmail.com"
-)
+RECIPIENT_EMAIL = os.environ.get("RECIPIENT_EMAIL")
 
 
 # =========================================================
