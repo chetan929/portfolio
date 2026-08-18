@@ -1,0 +1,33 @@
+# Django
+*.py[cod]
+*$py.class
+__pycache__/
+*.so
+db.sqlite3
+*.log
+logs/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment Variables
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Django Migrations (optional - include in version control)
+# migrations/
+
+# Static Files
+staticfiles/
