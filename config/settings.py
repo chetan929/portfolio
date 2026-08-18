@@ -2,30 +2,52 @@ import os
 from pathlib import Path
 import dj_database_url
 
-# Build paths inside the project
+# =========================================================
+# BASE DIRECTORY
+# =========================================================
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
+
+# =========================================================
+# SECURITY
+# =========================================================
+
 SECRET_KEY = os.environ.get(
-    "SECRET_KEY", "django-insecure-your-secret-key-change-this-in-production"
+    "SECRET_KEY",
+    "django-insecure-your-secret-key-change-this-in-production"
 )
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
-ALLOWED_HOSTS.extend(["localhost", "127.0.0.1"])
 
-# Application definition
+ALLOWED_HOSTS.extend([
+    "localhost",
+    "127.0.0.1",
+])
+
+
+# =========================================================
+# APPLICATIONS
+# =========================================================
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.contenttypes",
     "django.contrib.auth",
     "django.contrib.sessions",
     "django.contrib.messages",
+    "django.contrib.staticfiles",
+
     "contact",
     "corsheaders",
 ]
+
+
+# =========================================================
+# MIDDLEWARE
+# =========================================================
 
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
@@ -37,7 +59,17 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
 ]
 
+
+# =========================================================
+# URL CONFIGURATION
+# =========================================================
+
 ROOT_URLCONF = "config.urls"
+
+
+# =========================================================
+# TEMPLATES
+# =========================================================
 
 TEMPLATES = [
     {
@@ -55,18 +87,22 @@ TEMPLATES = [
     },
 ]
 
-# Database
-if os.environ.get('DATABASE_URL'):
-    # Use PostgreSQL on Render
+
+# =========================================================
+# DATABASE
+# =========================================================
+
+if os.environ.get("DATABASE_URL"):
+    # PostgreSQL database on Render
     DATABASES = {
-        'default': dj_database_url.config(
-            default=os.environ.get('DATABASE_URL'),
+        "default": dj_database_url.config(
+            default=os.environ.get("DATABASE_URL"),
             conn_max_age=600,
             conn_health_checks=True,
         )
     }
 else:
-    # Use SQLite locally
+    # SQLite database for local development
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
@@ -74,59 +110,97 @@ else:
         }
     }
 
-# Email Configuration
+
+# =========================================================
+# EMAIL CONFIGURATION - GMAIL
+# =========================================================
+
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
 EMAIL_HOST = "smtp.gmail.com"
+
 EMAIL_PORT = 587
+
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "kumarchetan8566@gmail.com"  # Your Gmail
-EMAIL_HOST_PASSWORD = (
-    "sljd rmsw rayk scyp"  # Gmail App Password (not your regular password)
+
+EMAIL_HOST_USER = os.environ.get(
+    "EMAIL_HOST_USER",
+    "kumarchetan8566@gmail.com"
 )
 
-DEFAULT_FROM_EMAIL = "kumarchetan8566@gmail.com"
-RECIPIENT_EMAIL = "kumarchetan8566@gmail.com"
+EMAIL_HOST_PASSWORD = os.environ.get(
+    "EMAIL_HOST_PASSWORD",
+    "sljd rmsw rayk scyp"
+)
 
-# CORS Configuration
+DEFAULT_FROM_EMAIL = os.environ.get(
+    "DEFAULT_FROM_EMAIL",
+    "kumarchetan8566@gmail.com"
+)
+
+RECIPIENT_EMAIL = os.environ.get(
+    "RECIPIENT_EMAIL",
+    "kumarchetan8566@gmail.com"
+)
+
+
+# =========================================================
+# CORS CONFIGURATION
+# =========================================================
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost",
     "http://127.0.0.1",
     "http://localhost:8000",
     "http://localhost:3000",
-    "https://*.onrender.com",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
 
-# Internationalization
+
+# =========================================================
+# INTERNATIONALIZATION
+# =========================================================
+
 LANGUAGE_CODE = "en-us"
+
 TIME_ZONE = "UTC"
+
 USE_I18N = True
+
 USE_TZ = True
 
-# Static files
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# For Vercel - don't require collectstatic
-if os.environ.get("VERCEL") == "1":
-    # Skip static files collection on Vercel
-    pass
-else:
-    # Local development
-    pass
+# =========================================================
+# STATIC FILES
+# =========================================================
+
+STATIC_URL = "/static/"
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+# =========================================================
+# DEFAULT PRIMARY KEY
+# =========================================================
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# Logging
+
+# =========================================================
+# LOGGING
+# =========================================================
+
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
+
     "handlers": {
         "console": {
             "class": "logging.StreamHandler",
         },
     },
+
     "loggers": {
         "django": {
             "handlers": ["console"],
